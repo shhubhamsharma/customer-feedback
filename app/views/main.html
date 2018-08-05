@@ -1,0 +1,22 @@
+<div class="jumbotron layout-fluid">
+  <h3>Feedback Form</h3>
+    <!-- <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p> -->
+    <form method="post" encType="multipart/form-data" name="feedbackForm">
+      <div class="form-group" ng-model="feedback.files">
+        <input type="file" name="file" id="file" ng-model="payload.files" class="form-control" placeholder="Select File" onchange="angular.element(this).scope().upload(event)" multiple accept="image/*" required>
+      </div>
+      <div class="form-group" ng-repeat="file in images">
+          <img class="img-thumbnail col-md-6 col-sm-6" src="{{file}}">
+      </div>
+      <div class="form-group">
+          <textarea placeholder="Enter Description" rows="3" type="text" name="description" ng-model="payload.description" id="" class="form-control" required>
+        </div>
+      <div class="form-group" >
+        <input type="reset" class="btn btn btn-lg btn-success" value="Submit" ng-click="submit()">
+      </div>
+    </form>
+    <div class="alert {{alert}}" ng-if="submitted" role="alert">
+      {{message}}
+    </div>
+</div>
+
